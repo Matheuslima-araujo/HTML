@@ -1,0 +1,27 @@
+.tabela {
+    width: 90%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: black;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
+}
+.tabela th {
+    background: linear-gradient(100deg, #625beee1 0%, #a447f5e0 100%);
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    padding: 24px 27px;
+    height: 85px;
+    box-sizing: border-box;
+}
+
+/* Células do corpo */
+.tabela td {
+    padding: 20px 27px;
+    height: 75px;
+    box-sizing: border-box;
+    font-weight: normal;
+}

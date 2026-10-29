@@ -1,0 +1,94 @@
+{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+}
+.tabela-tarefas {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.tabela-tarefas th {
+    padding: 15px 28px 22px;
+    text-align: left;
+    font-size: 28px;
+    font-weight: 700;
+    color: #647c99;
+    border-bottom: 1px solid white;
+}
+.tabela-tarefas td {
+    padding: 20px 28px;
+    text-align: left;
+    font-size: 27px;
+    font-weight: 400;
+    color: black;
+    border-bottom: 1px solid white;
+}
+.tabela-tarefas th:nth-child(1),
+.tabela-tarefas td:nth-child(1) {
+    width: 45.5%;
+}
+.tabela-tarefas th:nth-child(2),
+.tabela-tarefas td:nth-child(2) {
+    width: 29.2%;
+}
+.tabela-tarefas th:nth-child(3),
+.tabela-tarefas td:nth-child(3) {
+    width: 25.3%;
+}
+.prioridade {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 20px;
+    line-height: 22px;
+    white-space: nowrap;
+}
+.urgente {
+    color: #b42318;
+    background-color: #fee2e2;
+}
+.media {
+    color: #985000;
+    background-color: #fef7c3;
+}
+.concluido {
+    color: #067647;
+    background-color: #d9fbe6;
+}
+@media (max-width: 600px) {
+    .tabela-tarefas th {
+        font-size: 17px;
+        padding: 14px 8px;
+    }
+
+    .tabela-tarefas td {
+        font-size: 15px;
+        padding: 16px 8px;
+    }
+
+    .prioridade {
+        font-size: 12px;
+        line-height: 16px;
+        padding: 5px 8px;
+    }
+
+    .tabela-tarefas th:nth-child(1),
+    .tabela-tarefas td:nth-child(1) {
+        width: 43%;
+    }
+
+    .tabela-tarefas th:nth-child(2),
+    .tabela-tarefas td:nth-child(2) {
+        width: 29%;
+    }
+
+    .tabela-tarefas th:nth-child(3),
+    .tabela-tarefas td:nth-child(3) {
+        width: 28%;
+    }
+}

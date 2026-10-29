@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 10px 6px;
+    font-family: "Courier New", Courier, monospace;
+    background-color: white;
+}
+.tabela-acoes {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 20px;
+    color:black;
+}
+.tabela-acoes thead {
+    background-color: whitesmoke;
+}
+.tabela-acoes th {
+    font-weight: bold;
+    text-align: left;
+    color: #26374d;
+    padding: 12px 19px;
+    border: 1px solid #c7d3e2;
+}
+.tabela-acoes td {
+    padding: 12px 19px;
+    border: 1px solid rgba(128, 128, 128, 0.377);
+    background-color: white;
+    text-align: left;
+}
+.tabela-acoes th:nth-child(1),
+.tabela-acoes td:nth-child(1) {
+width: 20%;
+}
+.tabela-acoes th:nth-child(2),
+.tabela-acoes td:nth-child(2) {
+width: 25%;
+}
+.tabela-acoes th:nth-child(3),
+.tabela-acoes td:nth-child(3) {
+width: 30%;
+}
+.tabela-acoes th:nth-child(4),
+.tabela-acoes td:nth-child(4) {
+width: 25%;
+}
+.positiva {
+color: rgb(4, 128, 0);
+}
+.negativa {
+color: red;
+}
