@@ -1,0 +1,21 @@
+.tabela {
+  width: 100%;
+  border-spacing: 10;
+  background: white;
+  color: black;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+.tabela th {
+  background: blue;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+.tabela .ativo {
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.tabela tr {
+    background-color: rgba(0, 255, 255, 0.185);
+}
