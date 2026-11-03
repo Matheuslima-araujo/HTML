@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111827;
+    padding: 10px 24px;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+}
+
+h2 {
+    font-size: 23px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.info {
+    font-size: 13px;
+    margin-bottom: 18px;
+    color: #111;
+}
+
+/* Área responsiva */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #d9dee7;
+    border-radius: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #9ca3af #f1f1f1;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Cabeçalho */
+thead {
+    background-color: #374151;
+    color: #fff;
+}
+
+th {
+    padding: 13px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Células */
+td {
+    padding: 13px 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #e0e4eb;
+    white-space: nowrap;
+    transition: background 0.25s ease,
+                color 0.25s ease;
+}
+
+/* Efeito zebrado */
+tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* Efeito ao passar o mouse */
+tbody tr {
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+tbody tr:hover {
+    background-color: #e8efff;
+    transform: scale(1.002);
+    box-shadow: inset 4px 0 0 #010a1a;
+}
+
+tbody tr:hover td {
+    color: rgb(1, 0, 22);
+}
+
+/* Status */
+.status {
+    display: inline-block;
+    font-size: 13px;
+    transition: all 0.25s ease;
+}
+
+.sucesso {
+    color: #111827;
+}
+
+.aberto {
+    color: #111827;
+}
+
+tbody tr:hover .status {
+    font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .table-wrapper {
+        border-radius: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    th, td {
+        padding: 12px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 18px;
+    }
+
+    .info {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}

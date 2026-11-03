@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    padding: 30px 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    padding: 25px 20px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.10);
+}
+
+h2 {
+    font-size: 23px;
+    margin-bottom: 20px;
+    color: #080808;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+thead {
+    background: #5144ed;
+    color: white;
+}
+
+th {
+    padding: 13px 16px;
+    text-align: left;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 13px 16px;
+    font-size: 16px;
+    border-bottom: 1px solid #dce2eb;
+    transition: background 0.25s, color 0.25s;
+}
+
+/* Alinhamento numérico */
+th:nth-child(3),
+th:nth-child(4),
+td:nth-child(3),
+td:nth-child(4) {
+    text-align: right;
+}
+
+/* Efeito ao passar o mouse */
+tbody tr:not(.total):hover {
+    background: #eeedff;
+    cursor: pointer;
+}
+
+tbody tr:hover td {
+    color: #493be0;
+}
+
+/* Total geral */
+.total {
+    background: #eef2f8;
+    font-weight: bold;
+    border-top: 2px solid #5144ed;
+}
+
+.total td {
+    border-bottom: none;
+}
+
+/* Efeito no total */
+.total:hover {
+    background: #e1e5f5;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    .container {
+        padding: 20px 12px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    td {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    th {
+        font-size: 12px;
+        padding: 12px;
+    }
+}
