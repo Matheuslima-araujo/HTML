@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.logo{
+    width: 230px;
+}
+.categoria{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribui os espaços de forma igual */
+}
+.menu-principal ul{
+    list-style: none; /* Mexer da formatação da lista, remove a marcação */
+}
+.menu-principal ul li{
+    display: inline-block; /* Colocar todos os Li na mesma linha*/
+}
+.menu-principal ul li a{
+    color: rgb(28, 28, 29);  /* Cor do texto do menu */
+    text-decoration: none; /* Tira linha do link */
+    text-transform: uppercase; /* Deixa todo o texto maiúsculo */
+    padding: 5px 20px;
+    border: 1px solid transparent;  /* Gera uma borda em volta dos títulos */
+    font-size: 20px;
+}
+.menu-principal ul li a:hover{    /*Transição quando para o mouse sobre o texto */
+    background-color: rgb(248, 247, 247);
+    color: rgb(114, 116, 115);
+    transition: 0.06s ease; /* Pausa de exibição ao passar o mouse em cima */
+}
+#pagina-home{
+    height: 613px;
+    background-image: linear-gradient(rgba(212, 209, 209, 0.582), rgba(228, 225, 225, 0.199)), url(../img/banner.webp);
+    background-size: cover;
+    background-position: center;
+}
+.filmes-home {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.filme-card {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.filme-card img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    display: block;
+    border-radius: 5px;
+}
+.filme-card h3 {
+    background-color: rgba(252, 251, 251, 0.644);
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #2b2a2a;
+    
+}
+.detalhes-filme {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.detalhes-filme img {
+    width: 250px;
+    height: 375px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 5px;
+}
+.info-filme {
+    flex: 1;
+    min-width: 0;
+}
+.info-filme h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.info-filme p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+.info-filme .sinopse {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+
