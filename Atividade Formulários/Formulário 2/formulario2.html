@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <form action="#" method="POST">
+        <div class="form-row">
+            <label for="nome">Nome completo:</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+        <div class="form-row">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-row">
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco">
+        </div>
+        <div class="form-row">
+            <label for="bairro">Bairro:</label>
+            <input type="text" id="bairro" name="bairro">
+        </div>
+        <div class="form-row">
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade">
+        </div>
+        <div class="form-row">
+            <label for="telefone">Telefone fixo ou celular:</label>
+            <input type="tel" id="telefone" name="telefone">
+        </div>
+        
+        <div class="form-row">
+            <label>Serviços em couro:</label>
+            <div class="options">
+                <label><input type="checkbox" name="servicos[]" value="Bancos em couro legítimo"> Bancos em couro - 100% Legítimo</label>
+                <label><input type="checkbox" name="servicos[]" value="Bancos em couro misto"> Bancos em couro - Misto</label>
+                <label><input type="checkbox" name="servicos[]" value="Bancos em couro sintético"> Bancos em couro - 100% Sintético</label>
+                <label><input type="checkbox" name="servicos[]" value="Volante em couro"> Volante em couro</label>
+                <label><input type="checkbox" name="servicos[]" value="Revestimento manopla e coifa"> Revestimento da manopla e coifa</label>
+                <label><input type="checkbox" name="servicos[]" value="Apoio de braço"> Revestimento de apoio de braço</label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label>Restauração e tapeçaria:</label>
+            <div class="options">
+                <label><input type="checkbox" name="restauracao[]" value="Restauração completa"> Restauração completa de carros antigos</label>
+                <label><input type="checkbox" name="restauracao[]" value="Troca do teto"> Somente troca do teto</label>
+                <label><input type="checkbox" name="restauracao[]" value="Troca do assoalho"> Somente troca do assoalho</label>
+                <label><input type="checkbox" name="restauracao[]" value="Reparos nos bancos"> Reparos em estruturas dos bancos e ferragens</label>
+                <label><input type="checkbox" name="restauracao[]" value="Hidratação dos bancos"> Hidratação e higienização dos bancos</label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label>Acessórios:</label>
+            <div class="options">
+             <label><input type="checkbox" name="acessorios[]" value="Kit Hidratação"> Kit Hidratação p/ Couro</label>
+             <label><input type="checkbox" name="acessorios[]" value="Tapetes personalizados"> Tapetes personalizados</label>
+             <label><input type="checkbox" name="acessorios[]" value="Adaptação apoio de braço"> Adaptação de apoio de braço</label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label for="marca">Marca fabricante:</label>
+            <select id="marca" name="marca">
+                <option value="">Please Select</option>
+                <option>Volkswagen</option>
+                <option>Chevrolet</option>
+                <option>Fiat</option>
+                <option>Ford</option>
+                <option>Honda</option>
+                <option>Hyundai</option>
+                <option>Renault</option>
+                <option>Toyota</option>
+                <option>BYD</option>
+                <option>Geely</option>
+                <option>Jeep</option>
+                <option>Outra</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <label for="modelo">Nome modelo:</label>
+            <input type="text" id="modelo" name="modelo">
+        </div>
+
+        <div class="form-row">
+            <label for="ano">Ano de fabricação:</label>
+            <input type="text" id="ano" name="ano">
+        </div>
+
+        <div class="form-row">
+            <label>Especifique a forma de pagamento:</label>
+            <div class="options">
+                <label><input type="radio" name="pagamento" value="À vista"> À vista</label>
+                <label><input type="radio" name="pagamento" value="Depósito em conta"> Depósito em conta corrente</label>
+                <label><input type="radio" name="pagamento" value="Doc ou transferência"> Doc ou transferência bancária</label>
+                <label><input type="radio" name="pagamento" value="Cartão de crédito"> Parcelado até 4x no cartão de crédito.</label>
+            </div>
+        </div>
+
+        <div class="form-row description-row">
+            <label for="descricao">
+                Diga-nos com maior riqueza de detalhes o serviço de interesse:
+            </label>
+            <textarea id="descricao" name="descricao" rows="4"></textarea>
+        </div>
+        <div class="form-footer">
+            <button type="submit">Enviar formulário</button>
+        </div>
+    </form>
+</div>   
+</body>
+</html>

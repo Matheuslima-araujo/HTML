@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario 3</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <main class="container">
+        <h1>Vale-Presentes</h1>
+        <p class="descricao">
+            Este vale-presentes será enviado para o destinatário
+            após o seu pedido ter sido pago.
+        </p>
+        <form action="#" method="POST">
+
+        <div class="campo">
+            <label>Seu Nome:</label>
+            <div class="campos-duplos">
+                <div>
+                <input type="text" name="nome" required>
+                <small>Nome</small>
+                </div>
+                    <div>
+                    <input type="text" name="sobrenome" required>
+                    <small>Sobrenome</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Seu E-mail</label>
+                <div class="campo-conteudo">
+                    <input type="email" name="email"
+                    placeholder="ex: contato@upmartinopolis.com" required>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Nome do<br>Destinatário:</label>
+                <div class="campos-duplos">
+                    <div>
+                      <input type="text" name="nome_destinatario" required>
+                      <small>Nome</small>
+                    </div>
+                    <div>
+                        <input type="text" name="sobrenome_destinatario" required>
+                        <small>Sobrenome</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>E-mail do<br>Destinatário:</label>
+                <div class="campo-conteudo">
+                    <input type="email" name="email_destinatario"
+                    placeholder="ex: contato@upmartinopolis.com" required>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Endereço do<br>Destinatário</label>
+                <div class="campo-conteudo endereco">
+                    <div>
+                        <input type="text" name="rua" required>
+                        <small>Rua e número</small>
+                    </div>
+                    <div>
+                        <input type="text" name="bairro">
+                        <small>Bairro</small>
+                    </div>
+                    <div class="campos-duplos">
+                        <div>
+                            <input type="text" name="cidade">
+                            <small>Cidade</small>
+                        </div>
+                        <div>
+                            <input type="text" name="estado">
+                            <small>Estado</small>
+                        </div>
+                    </div>
+                    <div class="campos-duplos">
+                        <div>
+                            <input type="text" name="cep">
+                            <small>CEP</small>
+                        </div>
+                        <div>
+                            <select name="pais">
+                            <option value="Brasil">Brazil</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            </select>
+                            <small>País</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Telefone / Celular</label>
+                <div class="campo-conteudo">
+                    <div class="campos-telefone">
+                        <div>
+                        <input type="text" name="codigo" maxlength="3">
+                        <small>Código</small>
+                        </div>
+                        <span>-</span>
+                        <div>
+                        <input type="tel" name="telefone">
+                        <small>Número</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Tema do vale</label>
+                <div class="campo-conteudo">
+                    <select name="tema" required>
+                        <option value="">Please Select</option>
+                        <option value="Aniversário">Aniversário</option>
+                        <option value="Casamento">Casamento</option>
+                        <option value="Natal">Natal</option>
+                        <option value="Especial">Presente</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Valor do Vale</label>
+                <div class="campo-conteudo">
+                    <input type="number" name="valor"
+                    value="32.00" min="32" max="1000" step="0.01" required>
+                    <small>Valor entre R$ 32,00 e R$ 1.000,00</small>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Divulgar seu<br>Nome?</label>
+                <div class="campo-conteudo">
+                    <select name="divulgar_nome">
+                    <option value="">Please Select</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="campo observacoes">
+                <label>Observações:</label>
+                <div class="campo-conteudo">
+                    <textarea name="observacoes"></textarea>
+                </div>
+            </div>
+            
+            <div class="campo captcha">
+                <label>Digite a imagem</label>
+                <div class="campo-conteudo">
+                <div class="captcha-box">
+                    <div class="captcha-imagem">
+                        <span>⟳</span>
+                    </div>
+                        <input type="text" name="captcha">
+                    </div>
+                </div>
+            </div>
+
+            <div class="campo botao">
+                <div></div>
+                <div class="campo-conteudo">
+                <button type="submit">Enviar</button>
+                </div>
+            </div>
+        </form>
+        <p class="aviso">
+            Você receberá em seu e-mail o boleto referente ao valor
+            que você escolheu para o vale-presentes. Esse e-mail pode
+            demorar até 24h para ser enviado. Qualquer dúvida entre
+            em contato com nossa equipe no e-mail:
+            contato@upmartinopolis.com
+        </p>
+    </main>   
+</body>
+</html>
