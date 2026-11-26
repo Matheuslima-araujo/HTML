@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brechó Barroso — Protótipo Completo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rosa-antigo: #CC909B;
+      --vinho-ameixa: #4B243C;
+      --off-white: #F4F3EF;
+      --azul-aco: #5D80B9;
+      --roxo-violeta: #7059D9;
+      --surface-card: #EAE8E1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--off-white);
+      color: var(--vinho-ameixa);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.5;
+    }
+
+    h1, h2, h3, .brand-logo {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* ================= TOP BAR ================= */
+    .top-bar {
+      background-color: var(--vinho-ameixa);
+      color: var(--off-white);
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      padding: 8px 16px;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      border-bottom: 1px solid rgba(75, 36, 60, 0.12);
+      padding: 18px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      background-color: var(--off-white);
+      z-index: 100;
+    }
+
+    .brand-logo {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--vinho-ameixa);
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .brand-logo span {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--rosa-antigo);
+      margin-top: 3px;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--vinho-ameixa);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--roxo-violeta);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .search-box {
+      border: 1px solid var(--rosa-antigo);
+      background: transparent;
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 0.85rem;
+      color: var(--vinho-ameixa);
+      outline: none;
+    }
+
+    .cart-btn {
+      background-color: var(--vinho-ameixa);
+      color: var(--off-white);
+      border: none;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cart-badge {
+      background-color: var(--roxo-violeta);
+      color: var(--off-white);
+      border-radius: 50%;
+      padding: 2px 7px;
+      font-size: 0.75rem;
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      margin: 28px 5%;
+      background: linear-gradient(135deg, rgba(204, 144, 155, 0.28) 0%, rgba(204, 144, 155, 0.12) 100%);
+      border: 1px solid rgba(204, 144, 155, 0.45);
+      border-radius: 20px;
+      padding: 56px 6%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background-color: var(--azul-aco);
+      color: var(--off-white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 3.1rem;
+      line-height: 1.08;
+      margin-bottom: 16px;
+      color: var(--vinho-ameixa);
+    }
+
+    .hero p {
+      font-size: 1rem;
+      max-width: 480px;
+      margin-bottom: 28px;
+      opacity: 0.9;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn-primary {
+      background-color: var(--roxo-violeta);
+      color: var(--off-white);
+      border: none;
+      padding: 13px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: transform 0.15s, opacity 0.2s;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--vinho-ameixa);
+      border: 1.5px solid var(--vinho-ameixa);
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(75, 36, 60, 0.06);
+    }
+
+    .hero-visual {
+      background-color: var(--rosa-antigo);
+      border-radius: 16px;
+      height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      color: var(--off-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual::before {
+      content: "CURADORIA ÚNICA • PEÇA POR PEÇA";
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      background: rgba(75, 36, 60, 0.75);
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+
+    .hero-visual-caption {
+      background-color: var(--vinho-ameixa);
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+    }
+
+    /* ================= FILTROS RÁPIDOS ================= */
+    .filters-bar {
+      padding: 10px 5% 24px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-chip {
+      border: 1px solid var(--rosa-antigo);
+      background: transparent;
+      color: var(--vinho-ameixa);
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-chip:hover {
+      border-color: var(--vinho-ameixa);
+    }
+
+    .filter-chip.active {
+      background-color: var(--vinho-ameixa);
+      color: var(--off-white);
+      border-color: var(--vinho-ameixa);
+    }
+
+    /* ================= VITRINE DE PRODUTOS ================= */
+    .showcase {
+      padding: 16px 5% 60px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+    }
+
+    .section-header h2 {
+      font-size: 2.1rem;
+    }
+
+    .section-header a {
+      color: var(--azul-aco);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background-color: #FFFFFF;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(75, 36, 60, 0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(75, 36, 60, 0.08);
+    }
+
+    .product-img {
+      height: 270px;
+      background-color: var(--surface-card);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--vinho-ameixa);
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .badge-condition {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: var(--azul-aco);
+      color: var(--off-white);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .badge-size {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: var(--vinho-ameixa);
+      color: var(--off-white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-info {
+      padding: 16px;
+    }
+
+    .product-brand {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--rosa-antigo);
+      font-weight: 700;
+    }
+
+    .product-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 4px 0 10px;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .price-now {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--vinho-ameixa);
+    }
+
+    .price-old {
+      font-size: 0.78rem;
+      text-decoration: line-through;
+      opacity: 0.55;
+      margin-left: 6px;
+    }
+
+    .btn-buy-sm {
+      background-color: var(--roxo-violeta);
+      color: var(--off-white);
+      border: none;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* ================= DESAPEGO (IDEIA 3) ================= */
+    .sell-idea3-section {
+      margin: 0 5% 60px;
+      background-color: var(--vinho-ameixa);
+      color: var(--off-white);
+      border-radius: 22px;
+      padding: 48px 5%;
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .idea3-tag {
+      display: inline-block;
+      background-color: rgba(204, 144, 155, 0.18);
+      color: var(--rosa-antigo);
+      border: 1px solid var(--rosa-antigo);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    .idea3-left h2 {
+      font-size: 2.4rem;
+      line-height: 1.1;
+      color: var(--off-white);
+      margin-bottom: 12px;
+    }
+
+    .idea3-left > p {
+      font-size: 0.95rem;
+      color: rgba(244, 243, 239, 0.85);
+      margin-bottom: 22px;
+      max-width: 540px;
+    }
+
+    .demand-list {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .demand-item {
+      background-color: rgba(244, 243, 239, 0.07);
+      border: 1px solid rgba(244, 243, 239, 0.12);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .demand-item strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--off-white);
+    }
+
+    .demand-item span {
+      font-size: 0.8rem;
+      color: rgba(244, 243, 239, 0.75);
+    }
+
+    .demand-badge {
+      background-color: var(--azul-aco);
+      color: var(--off-white) !important;
+      font-size: 0.7rem !important;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .brand-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .brand-chips span {
+      background-color: var(--off-white);
+      color: var(--vinho-ameixa);
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .btn-idea3-cta {
+      background-color: var(--roxo-violeta);
+      color: var(--off-white);
+      border: none;
+      padding: 13px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+
+    .btn-idea3-cta:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    /* Card de Depoimento */
+    .testimonial-card {
+      background-color: var(--rosa-antigo);
+      color: var(--vinho-ameixa);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .testimonial-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      line-height: 0.6;
+      font-weight: 700;
+      color: var(--vinho-ameixa);
+    }
+
+    .testimonial-tag {
+      background-color: var(--vinho-ameixa);
+      color: var(--off-white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .testimonial-card blockquote {
+      font-size: 0.96rem;
+      line-height: 1.6;
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid rgba(75, 36, 60, 0.22);
+      padding-top: 16px;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--vinho-ameixa);
+      color: var(--off-white);
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .testimonial-author strong {
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-author span {
+      font-size: 0.78rem;
+      opacity: 0.85;
+    }
+
+    /* ================= RODAPÉ (FOOTER) ================= */
+    footer {
+      background-color: var(--vinho-ameixa);
+      color: var(--off-white);
+      padding: 56px 5% 28px;
+      border-top: 4px solid var(--rosa-antigo);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1.1fr 1.2fr;
+      gap: 36px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(244, 243, 239, 0.14);
+    }
+
+    .footer-brand .brand-logo {
+      color: var(--off-white);
+    }
+
+    .footer-brand p {
+      margin-top: 14px;
+      font-size: 0.88rem;
+      color: rgba(244, 243, 239, 0.82);
+      max-width: 280px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .social-pill {
+      border: 1px solid var(--rosa-antigo);
+      color: var(--rosa-antigo);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+      transition: all 0.2s;
+    }
+
+    .social-pill:hover {
+      background-color: var(--rosa-antigo);
+      color: var(--vinho-ameixa);
+    }
+
+    footer h3 {
+      font-size: 1.35rem;
+      color: var(--rosa-antigo);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .footer-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      font-size: 0.88rem;
+    }
+
+    .footer-list li {
+      color: rgba(244, 243, 239, 0.88);
+    }
+
+    .footer-list a {
+      color: var(--off-white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-list a:hover {
+      color: var(--rosa-antigo);
+    }
+
+    .footer-highlight {
+      color: var(--rosa-antigo);
+      font-weight: 600;
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .map-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: var(--off-white);
+      background-color: var(--azul-aco);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .newsletter-input {
+      background-color: rgba(244, 243, 239, 0.1);
+      border: 1px solid rgba(204, 144, 155, 0.5);
+      border-radius: 10px;
+      padding: 11px 14px;
+      color: var(--off-white);
+      font-size: 0.86rem;
+      outline: none;
+    }
+
+    .newsletter-input::placeholder {
+      color: rgba(244, 243, 239, 0.6);
+    }
+
+    .newsletter-btn {
+      background-color: var(--roxo-violeta);
+      color: var(--off-white);
+      border: none;
+      border-radius: 10px;
+      padding: 11px 16px;
+      font-weight: 600;
+      font-size: 0.86rem;
+      cursor: pointer;
+    }
+
+    .footer-bottom {
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.78rem;
+      color: rgba(244, 243, 239, 0.68);
+    }
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+}
+
+    /* ================= RESPONSIVIDADE ================= */
+    @media (max-width: 960px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 860px) {
+      .hero, .sell-idea3-section { grid-template-columns: 1fr; }
+      nav { display: none; }
+      .hero h1 { font-size: 2.3rem; }
+    }
+
+    @media (max-width: 560px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .demand-item { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <div class="top-bar">
+    Novidades todos os dias • Frete grátis nas compras acima de R$ 299
+  </div>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <a href="#" class="brand-logo">
+      Brechó Barroso
+      <span>Moda Circular</span>
+    </a>
+
+    <nav>
+      <a href="#">Novidades</a>
+      <a href="#">Feminino</a>
+      <a href="#">Masculino</a>
+      <a href="#">Bolsas & Sapatos</a>
+      <a href="#">Marcas de Luxo</a>
+    </nav>
+
+    <div class="header-actions">
+      <input type="text" class="search-box" placeholder="Buscar marca, peça..." />
+      <button class="cart-btn">Sacola <span class="cart-badge">2</span></button>
+    </div>
+  </header>
+
+  <!-- HERO EDITORIAL -->
+  <section class="hero">
+    <div>
+      <span class="hero-tag">Novidades da Semana</span>
+      <h1>Peças únicas com história e alma contemporânea.</h1>
+      <p>Garimpos selecionados à mão, higienizados e prontos para ganhar um novo capítulo no seu guarda-roupa.</p>
+      <div class="hero-cta-group">
+        <button class="btn-primary">Explorar Novidades</button>
+        <button class="btn-secondary">Promoções</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-caption">
+        <strong>Look Editorial • Disponível Agora</strong><br>
+        Blazer Alfaiataria Linho + Bolsa Couro Vintage
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTROS RÁPIDOS -->
+  <div class="filters-bar">
+    <button class="filter-chip active">Todos os Garimpos</button>
+    <button class="filter-chip">Vestidos</button>
+    <button class="filter-chip">Alfaiataria</button>
+    <button class="filter-chip">Bolsas</button>
+    <button class="filter-chip">Com Etiqueta</button>
+    <button class="filter-chip">Até R$ 99</button>
+  </div>
+
+  <!-- VITRINE DE PRODUTOS -->
+  <section class="showcase">
+    <div class="section-header">
+      <h2>Acabaram de Chegar</h2>
+      <a href="#">Ver tudo (100 peças) →</a>
+    </div>
+
+    <div class="product-grid">
+      <article class="product-card">
+        <div class="product-img">
+          <img src="./Imagens/Captura de tela 2026-11-26 093941.png" alt="Casaco Zara Xadrez de Linho">
+          <span class="badge-condition">Impecável</span>
+          <span class="badge-size">M</span>
+          [Foto da Peça 01]
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Zara</div>
+          <div class="product-title">Casaco Zara Xadrez de Linho</div>
+          <div class="product-footer">
+            <div>
+              <span class="price-now">R$ 139</span>
+              <span class="price-old">R$ 349</span>
+            </div>
+            <button class="btn-buy-sm">Eu quero</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img">
+          <span class="badge-condition">Com Etiqueta</span>
+          <span class="badge-size">38</span>
+          [Foto da Peça 02]
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Zara</div>
+          <div class="product-title">Blazer Estruturado Off-White</div>
+          <div class="product-footer">
+            <div>
+              <span class="price-now">R$ 159</span>
+              <span class="price-old">R$ 399</span>
+            </div>
+            <button class="btn-buy-sm">Eu quero</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img">
+          <span class="badge-condition">Seminovo</span>
+          <span class="badge-size">U</span>
+          [Foto da Peça 03]
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Arezzo</div>
+          <div class="product-title">Bolsa Tiracolo Couro Legítimo</div>
+          <div class="product-footer">
+            <div>
+              <span class="price-now">R$ 189</span>
+              <span class="price-old">R$ 520</span>
+            </div>
+            <button class="btn-buy-sm">Eu quero</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img">
+          <span class="badge-condition">Impecável</span>
+          <span class="badge-size">P</span>
+          [Foto da Peça 04]
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Animale</div>
+          <div class="product-title">Camisa Seda Pura Decote V</div>
+          <div class="product-footer">
+            <div>
+              <span class="price-now">R$ 175</span>
+              <span class="price-old">R$ 498</span>
+            </div>
+            <button class="btn-buy-sm">Eu quero</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE DESAPEGO (IDEIA 3) -->
+  <section id="desapegue" class="sell-idea3-section">
+    <div class="idea3-left">
+      <span class="idea3-tag">Curadoria & Liquidez</span>
+      <h2>O que mais vende por aqui</h2>
+      <p>
+        Peças bem cuidadas giram rápido e geram melhores repasses. Veja os itens com maior procura no nosso site:
+      </p>
+
+      <div class="demand-list">
+        <div class="demand-item">
+          <div>
+            <strong>Alfaiataria, Blazers & Vestidos</strong>
+            <span>Peças versáteis de meia-estação e festas</span>
+          </div>
+          <span class="demand-badge">Alta Rotatividade</span>
+        </div>
+
+        <div class="demand-item">
+          <div>
+            <strong>Bolsas de Couro & Calçados</strong>
+            <span>Modelos estruturados, clássicos e em bom estado</span>
+          </div>
+          <span class="demand-badge">Muito Procurado</span>
+        </div>
+
+        <div class="demand-item">
+          <div>
+            <strong>Marcas Queridinhas & Luxo</strong>
+            <span>Farm, Zara, Animale, Arezzo e grifes selecionadas</span>
+          </div>
+          <span class="demand-badge">Destaque</span>
+        </div>
+      </div>
+
+      <div class="brand-chips">
+        <span>Farm</span>
+        <span>Zara</span>
+        <span>Animale</span>
+        <span>Arezzo</span>
+        <span>Schutz</span>
+        <span>Marcas de Luxo</span>
+      </div>
+
+      <button class="btn-idea3-cta">Deixe a sua Avaliação Aqui</button>
+    </div>
+
+    <aside class="idea3-right">
+      <div class="testimonial-card">
+        <div class="testimonial-top">
+          <span class="quote-mark">“</span>
+          <span class="testimonial-tag">Quem já avaliou</span>
+        </div>
+        <blockquote>
+          Comprei 10 peças pelo site e chegaram conforme o combinado em casa, dentro do prazo e com os tamnhos corretos. Só tenho a agradecer.
+        <div class="testimonial-author">
+          <div class="author-avatar">CM</div>
+          <div>
+            <strong>Camila Mendes</strong>
+            <span>Comprou 10 peças • Vila Madalena, SP</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- RODAPÉ COM CONTATO E ENDEREÇO -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="brand-logo">
+          Brechó Barroso
+          <span>Moda Circular</span>
+        </a>
+        <p>Brechó apaixonado por moda consciente, peças únicas e consumo inteligente desde 2010.</p>
+        <div class="social-links">
+          <a href="#" class="social-pill">Instagram</a>
+          <a href="#" class="social-pill">TikTok</a>
+          <a href="#" class="social-pill">WhatsApp</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Contato & Atendimento</h3>
+        <ul class="footer-list">
+          <li>
+            <span class="footer-highlight">WhatsApp Atendimento</span>
+            <a href="tel:+5511999999999">(11) 99999-9999</a>
+          </li>
+          <li>
+            <span class="footer-highlight">Telefone Fixo</span>
+            <a href="tel:+551138120000">(11) 3812-0000</a>
+          </li>
+          <li>
+            <span class="footer-highlight">E-mail</span>
+            <a href="mailto:contato@brechocaprichoatoa.com.br">contato@brechocaprichoatoa.com.br</a>
+          </li>
+          <li>
+            <span class="footer-highlight">Horário Online</span>
+            Seg a Sex, das 9h às 18h
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Loja Física & Desapegos</h3>
+        <ul class="footer-list">
+          <li>
+            <span class="footer-highlight">Endereço</span>
+            R. do Barroso, 190 - Esplanada do Cruzeiro, Valença - RJ, 27600-000
+            </li>
+            <span class="footer-highlight">Horário Loja Física</span>
+            Seg a Sáb, das 9h às 12h e das 13h às 18h
+            </li>  
+            </ul>
+            </div>
